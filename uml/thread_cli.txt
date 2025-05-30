@@ -1,0 +1,18 @@
+
+
+
+@startuml thread_cli
+
+    "cli:Servidor" -> "cmds:HashMap" :  <<create>>
+    "cli:Servidor" -> "cmds:HashMap" : inicializa mapa de lambdas
+
+    loop enquanto quitEvent não estiver assinalado
+        Utilizador -> "cli:Servidor" : envia Comando
+        "cli:Servidor" -> "cli:Servidor" : lambda = cmds[Comando]
+        "cli:Servidor" -> "cli:Servidor" : lambda(Comando)
+        
+
+    end
+
+
+@enduml
